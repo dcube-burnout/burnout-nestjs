@@ -8,4 +8,7 @@ export class User {
 
   @Property({ unique: true })
   login!: string;
+
+  @Property()
+  password!: string;
 }
