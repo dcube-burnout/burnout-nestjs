@@ -40,3 +40,4 @@ lerna-debug.log*
 # temp files
 /temp
 src/database/migrations/.snapshot-*.json
+.vscode

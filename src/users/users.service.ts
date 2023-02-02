@@ -8,8 +8,10 @@ import { UsersRepository } from './entities/users.repository';
 @Injectable()
 export class UsersService {
   constructor(@InjectRepository(User) private readonly userRepository: UsersRepository) {}
-  async update(createEntryDto: EntityData<User>[]) {
-    return this.userRepository.upsertMany(createEntryDto);
+  async create(createEntryDto: EntityData<User>) {
+    const user = this.userRepository.create(createEntryDto);
+    await this.userRepository.flush();
+    return user;
   }
 
   async addTeams(userId:number, team: Team){
@@ -23,7 +25,7 @@ export class UsersService {
     return this.userRepository.findAll();
   }
 
-  findOne(id: number) {
-    return this.userRepository.find({ id });
+  findOne(login: string) {
+    return this.userRepository.findOne({ login });
   }
 }
