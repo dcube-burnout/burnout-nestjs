@@ -1,0 +1,17 @@
+import { Entity, PrimaryKey, Property } from '@mikro-orm/core';
+import { UsersRepository } from './users.repository';
+
+@Entity({ repository: () => UsersRepository })
+export class User {
+  @PrimaryKey()
+  id!: number;
+
+  @Property({ unique: true })
+  login!: string;
+
+  @Property()
+  name!: string;
+
+  @Property()
+  salary!: number;
+}
