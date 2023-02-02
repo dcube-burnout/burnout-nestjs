@@ -14,11 +14,11 @@ export class UsersService {
     return user;
   }
 
-  async addTeams(userId:number, team: Team){
+  async addTeams(userId: number, team: Team) {
     const user = await this.userRepository.findOne({ id: userId });
     user.team = team;
-    await this.userRepository.persistAndFlush(user); 
-    return user
+    await this.userRepository.persistAndFlush(user);
+    return user;
   }
 
   findAll() {

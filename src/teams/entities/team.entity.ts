@@ -10,6 +10,6 @@ export class Team {
   @Property({ unique: true })
   leader_id!: number;
 
-  @OneToMany(() => User, user => user.team)
+  @OneToMany(() => User, (user) => user.team)
   users = new Collection<User>(this);
 }

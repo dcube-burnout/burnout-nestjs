@@ -6,8 +6,8 @@ import { TeamsController } from './teams.controller';
 import { TeamsService } from './teams.service';
 
 @Module({
-    imports: [MikroOrmModule.forFeature([Team]), UsersModule],
-    controllers: [TeamsController],
-    providers: [TeamsService],
-  })
-  export class TeamsModule {}
+  imports: [MikroOrmModule.forFeature([Team]), UsersModule],
+  controllers: [TeamsController],
+  providers: [TeamsService],
+})
+export class TeamsModule {}

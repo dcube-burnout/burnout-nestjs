@@ -6,30 +6,30 @@ import { AddUserDto } from './dto/create-teams.dto';
 import { Team } from './entities/team.entity';
 import { TeamRepository } from './entities/team.repository';
 
-
 @Injectable()
 export class TeamsService {
-    constructor(@InjectRepository(Team) private readonly teamRepository: TeamRepository, private readonly userService: UsersService) {}
+  constructor(
+    @InjectRepository(Team) private readonly teamRepository: TeamRepository,
+    private readonly userService: UsersService,
+  ) {}
 
-    async create(createEntryDto: EntityData<Team>) {
-        const team =  this.teamRepository.create(createEntryDto);
-        console.log({team})
-        await this.teamRepository.flush()
-        return team
+  async create(createEntryDto: EntityData<Team>) {
+    const team = this.teamRepository.create(createEntryDto);
+    console.log({ team });
+    await this.teamRepository.flush();
+    return team;
+  }
 
-    }
+  async addUser(addUserDto: AddUserDto) {
+    const team = await this.findOne(addUserDto.team_id);
+    return this.userService.addTeams(addUserDto.userId, team);
+  }
 
-    async addUser(addUserDto: AddUserDto){
-        const team = await this.findOne(addUserDto.team_id)
-        return this.userService.addTeams(addUserDto.userId, team)
-    }
+  findAll() {
+    return this.teamRepository.findAll({ populate: ['users'] });
+  }
 
-    findAll() {
-        return this.teamRepository.findAll({ populate: ['users']});
-      }
-    
-    findOne(id: number) {
-        return this.teamRepository.findOne({ id }, { populate: ['users']});
-    }
-
+  findOne(id: number) {
+    return this.teamRepository.findOne({ id }, { populate: ['users'] });
+  }
 }

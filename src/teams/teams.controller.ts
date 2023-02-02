@@ -5,15 +5,15 @@ import { TeamsService } from './teams.service';
 @Controller('teams')
 export class TeamsController {
   constructor(private readonly teamsService: TeamsService) {}
-  
+
   @Post()
   create(@Body() createEntryDto: CreateTeamsDto) {
     return this.teamsService.create(createEntryDto);
   }
 
   @Post('/user')
-  addUser(@Body() AddUserDto : AddUserDto) {
-    return this.teamsService.addUser(AddUserDto);
+  addUser(@Body() addUserDto: AddUserDto) {
+    return this.teamsService.addUser(addUserDto);
   }
 
   @Get()

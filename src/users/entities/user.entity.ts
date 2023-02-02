@@ -14,5 +14,5 @@ export class User {
   password!: string;
 
   @ManyToOne()
-  team?: Team
+  team?: Team;
 }
