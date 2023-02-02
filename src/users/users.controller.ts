@@ -8,11 +8,16 @@ export class UsersController {
 
   @Post()
   create(@Body() createEntryDto: CreateUserDto) {
-    return this.usersService.update([createEntryDto]);
+    return this.usersService.create(createEntryDto);
   }
 
   @Get()
   findAll() {
     return this.usersService.findAll();
+  }
+
+  @Get('/test')
+  test() {
+    return 'Hello authenticated!';
   }
 }
