@@ -6,16 +6,16 @@ import { UsersRepository } from './entities/users.repository';
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectRepository(User) private readonly entryRepository: UsersRepository) {}
+  constructor(@InjectRepository(User) private readonly userRepository: UsersRepository) {}
   async update(createEntryDto: EntityData<User>[]) {
-    return this.entryRepository.upsertMany(createEntryDto);
+    return this.userRepository.upsertMany(createEntryDto);
   }
 
   findAll() {
-    return this.entryRepository.findAll();
+    return this.userRepository.findAll();
   }
 
   findOne(id: number) {
-    return `This action returns a #${id} entry`;
+    return this.userRepository.find({ id });
   }
 }

@@ -9,6 +9,9 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "db:reset": "mikro-orm migration:fresh && mikro-orm seeder:run",
+    "db:migration:create": "mikro-orm migration:create",
+    "db:migration:up": "mikro-orm migration:up",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
@@ -42,6 +45,7 @@
     "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/swagger": "^6.1.4",
+    "dotenv": "^16.0.3",
     "reflect-metadata": "^0.1.13",
     "rimraf": "^4.1.1",
     "rxjs": "^7.2.0"

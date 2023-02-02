@@ -8,10 +8,4 @@ export class User {
 
   @Property({ unique: true })
   login!: string;
-
-  @Property()
-  name!: string;
-
-  @Property()
-  salary!: number;
 }
