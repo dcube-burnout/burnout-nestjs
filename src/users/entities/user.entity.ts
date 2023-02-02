@@ -1,5 +1,5 @@
 import { Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
-import { Team } from '../../teams/entities/team.entity';
+import { Team } from 'src/teams/entities/team.entity';
 import { UsersRepository } from './users.repository';
 
 @Entity({ repository: () => UsersRepository })
