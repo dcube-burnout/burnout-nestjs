@@ -5,6 +5,7 @@ import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
+import { TeamsModule } from './teams/teams.module';
 
 @Module({
   imports: [
@@ -20,6 +21,7 @@ import { UsersModule } from './users/users.module';
       metadataProvider: TsMorphMetadataProvider,
     }),
     UsersModule,
+    TeamsModule,
   ],
   controllers: [AppController],
   providers: [AppService],
