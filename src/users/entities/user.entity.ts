@@ -13,6 +13,6 @@ export class User {
   @Property()
   password!: string;
 
-  @ManyToOne()
+  @ManyToOne(() => Team)
   team?: Team;
 }
