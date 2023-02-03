@@ -1,4 +1,5 @@
 import { Options } from '@mikro-orm/core';
+import { TsMorphMetadataProvider } from '@mikro-orm/reflection';
 import { join } from 'node:path';
 
 const config: Options = {
@@ -16,6 +17,7 @@ const config: Options = {
   migrations: {
     path: join(__dirname, 'migrations'),
   },
+  metadataProvider: TsMorphMetadataProvider,
 };
 
 export default config;

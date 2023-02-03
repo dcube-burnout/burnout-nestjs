@@ -28,4 +28,8 @@ export class UsersService {
   findOne(login: string) {
     return this.userRepository.findOne({ login });
   }
+
+  findOneById(id: number) {
+    return this.userRepository.findOne({ id }, { populate: ['team.id'] });
+  }
 }

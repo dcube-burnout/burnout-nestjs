@@ -15,7 +15,6 @@ export class TeamsService {
 
   async create(createEntryDto: EntityData<Team>) {
     const team = this.teamRepository.create(createEntryDto);
-    console.log({ team });
     await this.teamRepository.flush();
     return team;
   }
