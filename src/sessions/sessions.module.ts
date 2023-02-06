@@ -6,8 +6,9 @@ import { Session } from './entities/session.entity';
 import { UsersModule } from 'src/users/users.module';
 
 @Module({
-  imports: [MikroOrmModule.forFeature([Session]), UsersModule],
-  controllers: [SessionsController],
-  providers: [SessionsService],
+	imports: [MikroOrmModule.forFeature([Session]), UsersModule],
+	controllers: [SessionsController],
+	providers: [SessionsService],
+	exports: [SessionsService],
 })
-export class SessionsModule {}
+export class SessionsModule { }
