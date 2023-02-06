@@ -9,16 +9,16 @@ export class SessionsController {
 
   @UseGuards(AuthGuard('jwt'))
   @Get()
-  findByUser(@Req() _req: Express.Request) {
-    const userId = 1;
+  findByUser(@Req() req: Express.Request) {
+    const userId = (req.user as any).userId;
     return this.sessionsService.findByUser(userId);
   }
 
   @UseGuards(AuthGuard('jwt'))
   @Post()
-  createSession(@Body() createSessionDto: CreateSessionsDto) {
+  createSession(@Body() createSessionDto: CreateSessionsDto, @Req() req: Express.Request) {
     console.log(createSessionDto);
-    const userId = 1;
+    const userId = (req.user as any).userId;
     return this.sessionsService.createSession(createSessionDto, userId);
   }
 }
