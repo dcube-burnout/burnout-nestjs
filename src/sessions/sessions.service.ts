@@ -32,4 +32,8 @@ export class SessionsService {
 
     return session;
   }
+
+  findById(id: number) {
+    return this.sessionRepository.findOne({ id });
+  }
 }

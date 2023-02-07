@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Query } from '@nestjs/common';
 import { CreateReflectionDto } from './dto/create-reflection.dto';
 import { RetrieveReflectionsDto } from './dto/retrieve-reflections.dto';
 import { ReflectionsService } from './reflections.service';
@@ -9,13 +9,14 @@ export class ReflectionsController {
 
   // @UseGuards(AuthGuard('jwt'))
   @Get()
-  retrieveReflections(@Param() params: RetrieveReflectionsDto) {
+  retrieveReflections(@Query() params: RetrieveReflectionsDto) {
     return this.reflectionsService.findByUser(params.userId);
   }
 
   // @UseGuards(AuthGuard('jwt'))
   @Post()
   createReflection(@Body() createReflectionDto: CreateReflectionDto) {
+    console.log('createReflectionDto', createReflectionDto);
     return this.reflectionsService.createReflection(
       createReflectionDto,
       createReflectionDto.userId,

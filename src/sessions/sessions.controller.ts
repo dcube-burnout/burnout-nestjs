@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Query } from '@nestjs/common';
 import { CreateSessionDto } from './dto/create-session.dto';
 import { RetrieveSessionsDto } from './dto/retrieve-sessions.dto';
 import { SessionsService } from './sessions.service';
@@ -9,7 +9,7 @@ export class SessionsController {
 
   // @UseGuards(AuthGuard('jwt'))
   @Get()
-  retrieveSessions(@Param() params: RetrieveSessionsDto) {
+  retrieveSessions(@Query() params: RetrieveSessionsDto) {
     return this.sessionsService.findByUser(params.userId);
   }
 
@@ -17,5 +17,10 @@ export class SessionsController {
   @Post()
   createSession(@Body() createSessionDto: CreateSessionDto) {
     return this.sessionsService.createSession(createSessionDto, createSessionDto.userId);
+  }
+
+  @Get(':id')
+  getSession(@Param('id') id: string) {
+    return this.sessionsService.findById(Number(id));
   }
 }

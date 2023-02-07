@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { AppreciationService } from './appreciation.service';
 import { CreateAppreciationDto } from './dto/create-appreciation.dto';
 import { RetrieveAppreciationsDto } from './dto/retrieve-appreciations.dto';
@@ -14,7 +14,7 @@ export class AppreciationController {
 
   // @UseGuards(AuthGuard('jwt'))
   @Get()
-  getAppreciations(@Param() params: RetrieveAppreciationsDto) {
+  getAppreciations(@Query() params: RetrieveAppreciationsDto) {
     return this.appreciationService.retrieve(params.userId);
   }
 }
