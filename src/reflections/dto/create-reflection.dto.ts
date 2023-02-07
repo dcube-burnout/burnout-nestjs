@@ -1,6 +1,6 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateReflectionsDto {
+export class CreateReflectionDto {
   @ApiProperty()
   session!: number;
 
@@ -9,4 +9,7 @@ export class CreateReflectionsDto {
 
   @ApiProperty()
   responses: string; // store as string - "1,2,3,3,2,1,2"
+
+  @ApiProperty()
+  userId: number;
 }

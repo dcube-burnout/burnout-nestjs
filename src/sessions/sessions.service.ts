@@ -3,7 +3,7 @@ import { Injectable } from '@nestjs/common';
 import { SessionRepository } from './entities/session.repository';
 import { Session, Progress } from './entities/session.entity';
 import { UsersService } from 'src/users/users.service';
-import { CreateSessionsDto } from './dto/create-sessions.dto';
+import { CreateSessionDto } from './dto/create-session.dto';
 
 @Injectable()
 export class SessionsService {
@@ -19,7 +19,7 @@ export class SessionsService {
     return this.sessionRepository.findOne({ id }, { populate: ['team.id'] });
   }
 
-  async createSession(createSessionDto: CreateSessionsDto, userId: number) {
+  async createSession(createSessionDto: CreateSessionDto, userId: number) {
     const user = await this.userService.findOneById(userId);
     const sessionObj = {
       ...createSessionDto,

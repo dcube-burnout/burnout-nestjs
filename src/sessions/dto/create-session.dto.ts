@@ -1,11 +1,8 @@
 import { ApiProperty } from '@nestjs/swagger';
 
-export class CreateAppreciationDto {
+export class CreateSessionDto {
   @ApiProperty()
-  receiverId: number;
-
-  @ApiProperty()
-  writeup: string;
+  title: string;
 
   @ApiProperty()
   userId: number;

@@ -1,23 +1,21 @@
-import { Controller, Get, UseGuards, Req, Post, Body } from '@nestjs/common';
-import { AuthGuard } from '@nestjs/passport';
-import { CreateSessionsDto } from './dto/create-sessions.dto';
+import { Controller, Get, Post, Body, Param } from '@nestjs/common';
+import { CreateSessionDto } from './dto/create-session.dto';
+import { RetrieveSessionsDto } from './dto/retrieve-sessions.dto';
 import { SessionsService } from './sessions.service';
 
 @Controller('sessions')
 export class SessionsController {
   constructor(private readonly sessionsService: SessionsService) {}
 
-  @UseGuards(AuthGuard('jwt'))
+  // @UseGuards(AuthGuard('jwt'))
   @Get()
-  findByUser(@Req() req: Express.Request) {
-    const userId = (req.user as any).userId;
-    return this.sessionsService.findByUser(userId);
+  retrieveSessions(@Param() params: RetrieveSessionsDto) {
+    return this.sessionsService.findByUser(params.userId);
   }
 
-  @UseGuards(AuthGuard('jwt'))
+  // @UseGuards(AuthGuard('jwt'))
   @Post()
-  createSession(@Body() createSessionDto: CreateSessionsDto, @Req() req: Express.Request) {
-    const userId = (req.user as any).userId;
-    return this.sessionsService.createSession(createSessionDto, userId);
+  createSession(@Body() createSessionDto: CreateSessionDto) {
+    return this.sessionsService.createSession(createSessionDto, createSessionDto.userId);
   }
 }
