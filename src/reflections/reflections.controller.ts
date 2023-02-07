@@ -1,6 +1,6 @@
 import { Controller, Get, UseGuards, Req, Post, Body } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
-import { CreateReflectionsDto } from './dto/create-reflections';
+import { CreateReflectionsDto } from './dto/create-reflections.dto';
 import { ReflectionsService } from './reflections.service';
 
 @Controller('reflections')
@@ -14,11 +14,10 @@ export class ReflectionsController {
 		return this.reflectionsService.findByUser(userId);
 	}
 
-	@UseGuards(AuthGuard('jwt'))
+	// @UseGuards(AuthGuard('jwt'))
 	@Post()
 	createReflection(@Body() createReflectionsDto: CreateReflectionsDto) {
 		const userId = 1;
-		const sessionId = 1;
-		return this.reflectionsService.createReflection(createReflectionsDto, sessionId, userId);
+		return this.reflectionsService.createReflection(createReflectionsDto, userId);
 	}
 }

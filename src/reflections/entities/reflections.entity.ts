@@ -1,4 +1,5 @@
-import { Entity, ManyToOne, PrimaryKey, Property } from '@mikro-orm/core';
+import { Collection, Entity, ManyToOne, OneToOne, PrimaryKey, Property } from '@mikro-orm/core';
+import { BurnoutInv } from './burnout-inv.entity';
 import { Session } from 'src/sessions/entities/session.entity';
 import { User } from 'src/users/entities/user.entity';
 
@@ -13,8 +14,8 @@ export class Reflection {
 	@ManyToOne(() => User)
 	user!: User;
 
-	// @OneToOne(() => Burnout_inv, (burnout_inv) => burnout_inv.id)
-	// burnout_inv_id = new Collection<Burnout_inv>(this);
+	@OneToOne(() => BurnoutInv, (burnoutInv) => burnoutInv.reflection, { owner: true })
+	burnout_inv_id: BurnoutInv;
 
 	@Property()
 	achievements: string;
