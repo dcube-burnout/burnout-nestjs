@@ -13,7 +13,6 @@ export class AppreciationService {
   ) {}
   create(dto: CreateAppreciationDto, userId: number) {
     const appreciation: EntityData<Appreciation> = {
-      session: dto.sessionId,
       receiver: dto.receiverId,
       giver: userId,
       writeup: dto.writeup,
