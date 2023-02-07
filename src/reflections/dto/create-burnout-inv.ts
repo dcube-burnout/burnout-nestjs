@@ -1,7 +1,7 @@
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateBurnoutInvDto {
-	@ApiProperty()
-	responses: number;
-	sessionId: number;
+  @ApiProperty()
+  responses: number;
+  sessionId: number;
 }

@@ -11,26 +11,26 @@ import { SessionsModule } from './sessions/sessions.module';
 import { AppreciationModule } from './appreciation/appreciation.module';
 import { ReflectionsModule } from './reflections/reflections.module';
 @Module({
-	imports: [
-		ConfigModule.forRoot(),
-		MikroOrmModule.forRoot({
-			autoLoadEntities: true,
-			type: 'postgresql',
-			dbName: process.env.DATABASE_NAME,
-			password: process.env.DATABASE_PASSWORD,
-			user: process.env.DATABASE_USER,
-			host: process.env.DATABASE_HOST,
-			port: parseInt(process.env.DATABASE_PORT || '5432'),
-			metadataProvider: TsMorphMetadataProvider,
-		}),
-		UsersModule,
-		TeamsModule,
-		AuthModule,
-		SessionsModule,
-		AppreciationModule,
-		ReflectionsModule,
-	],
-	controllers: [AppController],
-	providers: [AppService],
+  imports: [
+    ConfigModule.forRoot(),
+    MikroOrmModule.forRoot({
+      autoLoadEntities: true,
+      type: 'postgresql',
+      dbName: process.env.DATABASE_NAME,
+      password: process.env.DATABASE_PASSWORD,
+      user: process.env.DATABASE_USER,
+      host: process.env.DATABASE_HOST,
+      port: parseInt(process.env.DATABASE_PORT || '5432'),
+      metadataProvider: TsMorphMetadataProvider,
+    }),
+    UsersModule,
+    TeamsModule,
+    AuthModule,
+    SessionsModule,
+    AppreciationModule,
+    ReflectionsModule,
+  ],
+  controllers: [AppController],
+  providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {}

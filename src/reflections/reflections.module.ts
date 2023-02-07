@@ -8,9 +8,9 @@ import { SessionsModule } from 'src/sessions/sessions.module';
 import { UsersModule } from 'src/users/users.module';
 
 @Module({
-	imports: [MikroOrmModule.forFeature([Reflection, BurnoutInv]), SessionsModule, UsersModule],
-	controllers: [ReflectionsController],
-	providers: [ReflectionsService],
-	exports: [ReflectionsService],
+  imports: [MikroOrmModule.forFeature([Reflection, BurnoutInv]), SessionsModule, UsersModule],
+  controllers: [ReflectionsController],
+  providers: [ReflectionsService],
+  exports: [ReflectionsService],
 })
-export class ReflectionsModule { }
+export class ReflectionsModule {}
