@@ -52,7 +52,7 @@ export class BurnoutInv {
   setOverallScore() {
     const burnoutStage = this.exhaustion <= 17 ? 0 : this.exhaustion > 30 ? 2 : 1;
     const depersStage = this.depersonalisation <= 17 ? 0 : this.depersonalisation > 30 ? 2 : 1;
-    const personalStage = this.fulfilment <= 17 ? 0 : this.fulfilment > 30 ? 2 : 1;
+    const personalStage = this.fulfilment <= 17 ? 2 : this.fulfilment > 30 ? 0 : 1;
 
     const overallStage = Math.max(burnoutStage, depersStage, personalStage);
 
