@@ -13,7 +13,7 @@ export class ReflectionsService {
     private readonly userService: UsersService,
   ) {}
   findByUser(id: number) {
-    return this.reflectionRepository.find({ user: id });
+    return this.reflectionRepository.find({ user: id }, { populate: ['burnout_inv_id'] });
   }
 
   findOneById(id: number) {
