@@ -8,15 +8,15 @@ import { Appreciation } from 'src/appreciation/entities/appreciation.entity';
 const teamData = [{ leader_id: 1 }];
 
 const userData = [
-  { login: 'Ann Smith', password: '123', team: 1 },
-  { login: 'John Lim', password: '123', team: 1 },
-  { login: 'Harry Teo', password: '123', team: 1 },
-  { login: 'Richard Lee', password: '123', team: 1 },
-  { login: 'Charlotte Au', password: '123', team: 1 },
-  { login: 'Rebecca Loh', password: '123', team: 1 },
-  { login: 'Martin Tay', password: '123', team: 1 },
-  { login: 'Sarah Peh', password: '123', team: 1 },
-  { login: 'Joey Lee', password: '789' },
+  { login: 'anntay', name: 'Ann Tay', role: 'Software Enginner', password: '123', team: 1 },
+  { login: 'johnlim', name: 'John Lim', role: 'Software Enginner', password: '123', team: 1 },
+  { login: 'harryteo', name: 'Harry Teo', role: 'Software Enginner', password: '123', team: 1 },
+  { login: 'richardlee', name: 'Richard Lee', role: 'UX Designer', password: '123', team: 1 },
+  { login: 'charlotteau', name: 'Charlotte Au', role: 'UX Designer', password: '123', team: 1 },
+  { login: 'rebeccaloh', name: 'Rebecca Loh', role: 'UX Designer', password: '123', team: 1 },
+  { login: 'martintay', name: 'Martin Tay', role: 'Marketing', password: '123', team: 1 },
+  { login: 'sarahpeh', name: 'Sarah Peh', role: 'Product Manager', password: '123', team: 1 },
+  { login: 'joeylee', name: 'Joey Lee', role: 'Sales', password: '789' },
 ];
 
 const sessionData = [

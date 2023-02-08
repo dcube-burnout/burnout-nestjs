@@ -13,6 +13,12 @@ export class User {
   @Property()
   password!: string;
 
+  @Property({ default: '' })
+  name!: string;
+
+  @Property({ default: '' })
+  role!: string;
+
   @ManyToOne(() => Team)
   team?: Team;
 }
