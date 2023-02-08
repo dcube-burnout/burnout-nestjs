@@ -8,9 +8,9 @@ import { Appreciation } from 'src/appreciation/entities/appreciation.entity';
 const teamData = [{ leader_id: 1 }];
 
 const userData = [
-  { login: 'anntay', name: 'Ann Tay', role: 'Software Enginner', password: '123', team: 1 },
-  { login: 'johnlim', name: 'John Lim', role: 'Software Enginner', password: '123', team: 1 },
-  { login: 'harryteo', name: 'Harry Teo', role: 'Software Enginner', password: '123', team: 1 },
+  { login: 'anntay', name: 'Ann Tay', role: 'Software Engineer', password: '123', team: 1 },
+  { login: 'johnlim', name: 'John Lim', role: 'Software Engineer', password: '123', team: 1 },
+  { login: 'harryteo', name: 'Harry Teo', role: 'Software Engineer', password: '123', team: 1 },
   { login: 'richardlee', name: 'Richard Lee', role: 'UX Designer', password: '123', team: 1 },
   { login: 'charlotteau', name: 'Charlotte Au', role: 'UX Designer', password: '123', team: 1 },
   { login: 'rebeccaloh', name: 'Rebecca Loh', role: 'UX Designer', password: '123', team: 1 },
