@@ -23,7 +23,7 @@ const sessionData = [
   { team: 1, title: 'Sprint 112', date: '01/05/2023', progress: Progress.done },
   { team: 1, title: 'Sprint 113', date: '01/12/2022', progress: Progress.done },
   { team: 1, title: 'Sprint 114', date: '01/19/2022', progress: Progress.done },
-  { team: 1, title: 'Sprint 114', date: '01/26/2022', progress: Progress.done },
+  { team: 1, title: 'Sprint 115', date: '01/26/2022', progress: Progress.done },
 ];
 
 const appreciationData = [
