@@ -4,6 +4,8 @@ import { User } from 'src/users/entities/user.entity';
 import { Team } from 'src/teams/entities/team.entity';
 import { Progress, Session } from 'src/sessions/entities/session.entity';
 import { Appreciation } from 'src/appreciation/entities/appreciation.entity';
+import { Reflection } from 'src/reflections/entities/reflections.entity';
+import { BurnoutInv } from 'src/reflections/entities/burnout-inv.entity';
 
 const teamData = [{ leader_id: 1 }];
 
@@ -12,8 +14,8 @@ const userData = [
   { login: 'johnlim', name: 'John Lim', role: 'Software Engineer', password: '123', team: 1 },
   { login: 'harryteo', name: 'Harry Teo', role: 'Software Engineer', password: '123', team: 1 },
   { login: 'richardlee', name: 'Richard Lee', role: 'UX Designer', password: '123', team: 1 },
-  { login: 'charlotteau', name: 'Charlotte Au', role: 'UX Designer', password: '123', team: 1 },
-  { login: 'rebeccaloh', name: 'Rebecca Loh', role: 'UX Designer', password: '123', team: 1 },
+  { login: 'charlotteau', name: 'Nur Halizah', role: 'UX Designer', password: '123', team: 1 },
+  { login: 'rebeccaloh', name: 'Kavitha Raju', role: 'UX Designer', password: '123', team: 1 },
   { login: 'martintay', name: 'Martin Tay', role: 'Marketing', password: '123', team: 1 },
   { login: 'sarahpeh', name: 'Sarah Peh', role: 'Product Manager', password: '123', team: 1 },
   { login: 'joeylee', name: 'Joey Lee', role: 'Sales', password: '789' },
@@ -34,12 +36,21 @@ const appreciationData = [
   { session: 1, giver: 4, receiver: 1, writeup: 'Thanks for helping me with the app demo' },
 ];
 
+const burnoutInvData = ['1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,6,6,6,6,6,6,6'];
+
+const reflectionData = [
+  { session: 1, user: 1, burnout_inv_id: 1, achievements: 'I did a lot of work' },
+];
+
 export class DatabaseSeeder extends Seeder {
   async run(em: EntityManager): Promise<void> {
     teamData.map((i) => em.create(Team, i));
     userData.map((i) => em.create(User, i));
     sessionData.map((i) => em.create(Session, i));
     appreciationData.map((i) => em.create(Appreciation, i));
+    const inv = new BurnoutInv(burnoutInvData[0]);
+    em.persist(inv);
+    reflectionData.map((i) => em.create(Reflection, i));
     await em.flush();
   }
 }
