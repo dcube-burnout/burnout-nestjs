@@ -24,4 +24,8 @@ export class AppreciationService {
   retrieve(userId: number) {
     return this.appreciationRepo.find({ receiver: userId });
   }
+
+  get(id: number) {
+    return this.appreciationRepo.find({ id });
+  }
 }
