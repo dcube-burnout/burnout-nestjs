@@ -28,4 +28,8 @@ export class AppreciationService {
   get(id: number) {
     return this.appreciationRepo.find({ id });
   }
+
+  getGiver(userId: number) {
+    return this.appreciationRepo.find({ giver: userId });
+  }
 }
