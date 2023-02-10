@@ -36,10 +36,18 @@ const appreciationData = [
   { session: 1, giver: 4, receiver: 1, writeup: 'Thanks for helping me with the app demo' },
 ];
 
-const burnoutInvData = ['1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,6,6,6,6,6,6,6'];
+const burnoutInvData = [
+  '1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,6,6,6,6,6,6,6',
+  '1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,6,6,6,6,6,6,6',
+  '1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,6,6,6,6,6,6,6',
+  '1,1,1,1,1,1,1,1,1,1,1,1,1,1,6,6,6,6,6,6,6,6',
+];
 
 const reflectionData = [
   { session: 1, user: 1, burnout_inv_id: 1, achievements: 'I did a lot of work' },
+  { session: 2, user: 1, burnout_inv_id: 2, achievements: 'I did a lot of work' },
+  { session: 3, user: 1, burnout_inv_id: 3, achievements: 'I did a lot of work' },
+  { session: 4, user: 1, burnout_inv_id: 4, achievements: 'I did a lot of work' },
 ];
 
 export class DatabaseSeeder extends Seeder {
@@ -48,8 +56,7 @@ export class DatabaseSeeder extends Seeder {
     userData.map((i) => em.create(User, i));
     sessionData.map((i) => em.create(Session, i));
     appreciationData.map((i) => em.create(Appreciation, i));
-    const inv = new BurnoutInv(burnoutInvData[0]);
-    em.persist(inv);
+    burnoutInvData.map((d: any) => em.create(BurnoutInv, new BurnoutInv(d)));
     reflectionData.map((i) => em.create(Reflection, i));
     await em.flush();
   }
