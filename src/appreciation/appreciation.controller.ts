@@ -2,6 +2,7 @@ import { Body, Controller, Get, Post, Query, Param } from '@nestjs/common';
 import { AppreciationService } from './appreciation.service';
 import { CreateAppreciationDto } from './dto/create-appreciation.dto';
 import { GetAppreciationDto } from './dto/get-appreciation.dto';
+import { GiverAppreciationsDto } from './dto/giver-appreciations.dto';
 import { RetrieveAppreciationsDto } from './dto/retrieve-appreciations.dto';
 
 @Controller('appreciation')
@@ -17,6 +18,12 @@ export class AppreciationController {
   @Get()
   retrieveAppreciations(@Query() query: RetrieveAppreciationsDto) {
     return this.appreciationService.retrieve(query.userId);
+  }
+
+
+  @Get('/giver')
+  getGiverAppreciation(@Query() query: GiverAppreciationsDto) {
+    return this.appreciationService.getGiver(query.giverId);
   }
 
   @Get(':id')
