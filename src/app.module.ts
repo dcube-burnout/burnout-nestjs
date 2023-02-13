@@ -12,7 +12,7 @@ import { AppreciationModule } from './appreciation/appreciation.module';
 import { ReflectionsModule } from './reflections/reflections.module';
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    ConfigModule.forRoot({ isGlobal: true }),
     MikroOrmModule.forRoot({
       autoLoadEntities: true,
       type: 'postgresql',
@@ -21,6 +21,8 @@ import { ReflectionsModule } from './reflections/reflections.module';
       user: process.env.DATABASE_USER,
       host: process.env.DATABASE_HOST,
       port: parseInt(process.env.DATABASE_PORT || '5432'),
+      debug: process.env.NODE_ENV === 'local',
+      cache: { enabled: process.env.NODE_ENV === 'local' },
       metadataProvider: TsMorphMetadataProvider,
     }),
     UsersModule,
