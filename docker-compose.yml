@@ -14,6 +14,18 @@ services:
     environment:
       - NODE_ENV=docker
       - DATABASE_HOST=host.docker.internal
+  
+  frontend:
+    image: burnout-nextjs
+    restart: always
+    ports:
+      - 3000:3000
+    env_file:
+      - ./.env
+    environment:
+      - NODE_ENV=docker
+      - DATABASE_HOST=host.docker.internal
+
   db:
     image: postgres:14.1-alpine
     restart: always
