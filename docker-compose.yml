@@ -2,7 +2,7 @@ version: '3'
 
 services:
   backend:
-    image: burnout-nestjs
+    image: ghcr.io/dcube-burnout/burnout-nestjs:latest
     restart: always
     build:
       context: .
@@ -14,9 +14,9 @@ services:
     environment:
       - NODE_ENV=docker
       - DATABASE_HOST=host.docker.internal
-  
+
   frontend:
-    image: burnout-nextjs
+    image: ghcr.io/dcube-burnout/burnout-nextjs:latest
     restart: always
     ports:
       - 3000:3000
