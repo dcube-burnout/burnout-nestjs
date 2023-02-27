@@ -1,0 +1,30 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ningyuuu
+          password: ${{ secrets.CR_PAT }}
+      
+      # https://github.com/marketplace/actions/push-to-ghcr
+      - name: Build and publish Docker image
+        uses: macbre/push-to-ghcr@master
+        with:
+          image_name: ghcr.io/dcube-burnout/burnout-nestjs:latest
+          github_token: ${{ secrets.CR_PAT }}
