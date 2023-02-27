@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  nginx: 
+  nginx:
     image: nginx:latest
     container_name: nginx
     volumes:
@@ -9,7 +9,7 @@ services:
     ports:
       - 80:80
       - 443:443
-      
+
   backend:
     image: ghcr.io/dcube-burnout/burnout-nestjs:latest
     restart: always
@@ -22,7 +22,7 @@ services:
       - ./.env
     environment:
       - NODE_ENV=docker
-      - DATABASE_HOST=host.docker.internal
+      - DATABASE_HOST=db
 
   frontend:
     image: ghcr.io/dcube-burnout/burnout-nextjs:latest
@@ -33,7 +33,6 @@ services:
       - ./.env
     environment:
       - NODE_ENV=docker
-      - DATABASE_HOST=host.docker.internal
 
   db:
     image: postgres:14.1-alpine
