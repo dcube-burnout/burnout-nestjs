@@ -41,3 +41,7 @@ lerna-debug.log*
 /temp
 src/database/migrations/.snapshot-*.json
 .vscode
+
+# ssl stuff
+/certbot
+!/certbot/run.sh

@@ -4,11 +4,19 @@ services:
   nginx:
     image: nginx:latest
     container_name: nginx
-    volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+    restart: always
     ports:
       - 80:80
       - 443:443
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./certbot/www:/var/www/certbot/:ro
+      - ./certbot/conf/:/etc/nginx/ssl/:ro
+  certbot:
+    image: certbot/certbot:latest
+    volumes:
+      - ./certbot/www/:/var/www/certbot/:rw
+      - ./certbot/conf/:/etc/letsencrypt/:rw
 
   backend:
     image: ghcr.io/dcube-burnout/burnout-nestjs:latest
