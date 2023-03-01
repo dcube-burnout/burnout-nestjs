@@ -43,5 +43,5 @@ src/database/migrations/.snapshot-*.json
 .vscode
 
 # ssl stuff
-/certbot
-!/certbot/run.sh
+certbot/**
+!certbot/run.sh
